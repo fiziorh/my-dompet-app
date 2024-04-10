@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\HTtp\Controllers\RegisterController;
 use App\HTtp\Controllers\LoginController;
+use App\HTtp\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register.in
 
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.auth');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

@@ -44,6 +44,7 @@
 </head>
 <body>
    <div class="container">
+    @include('sweetalert::alert')
        <div class="col-md-6">
          <h1 class="mb-4">Welcome Back</h1>
          <img src="{{URL::asset('img/WelcomeLogin.png')}}" class="login-image" alt="Illustration">
