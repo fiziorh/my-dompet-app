@@ -48,17 +48,21 @@
          <h1 class="mb-4">Welcome Back</h1>
          <img src="{{URL::asset('img/WelcomeLogin.png')}}" class="login-image" alt="Illustration">
          <div class="col-md-6">
+          <form action="{{route('login.auth')}}" method="POST">
+            @csrf
             <div class="form-group">
-               <input type="email" class="form-control" placeholder="Email">
+               <input type="email" class="form-control" placeholder="Email" name="email">
             </div>
             <div class="form-group">
-               <input type="password" class="form-control" placeholder="Password">
+               <input type="password" class="form-control" placeholder="Password" name="password">
             </div>
-            <button class="btn btn-primary btn-lg btn-block">Login</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+            </form>
             <div class="text-center mt-3">
               Don't have account? <a href="/register">Register</a>
             </div>
          </div>
+         
      </div>
    </div>
  </body>

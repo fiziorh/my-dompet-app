@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\HTtp\Controllers\RegisterController;
+use App\HTtp\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/login', function () {
-    return view('auth.login', [
-        'title' => 'Login'
-    ]);
-});
-
 Route::get('/dashboard', function () {
     return view('admin.dashboard', [
         'title' => 'Dashboard'
@@ -33,3 +27,6 @@ Route::get('/dashboard', function () {
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login.auth');
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');

@@ -3,39 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('auth.login', [
-            'title' => 'Login'
+            'title' => 'Login',
+            'active' => 'login'
         ]);
     }
-
-    public function authentication(Request $request){
-        $credential = $request->validate([
-            'email' =>'required|email:dns',
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email:dns',
             'password' => 'required'
         ]);
-    
 
-    if (Auth::attempt($credential)){
-        $user = User::where('email', $credential['email'])->first();
-    
-    if ($user) {
-        $request->session()->regenerate();
-    
-    Alert::success('Login success')->showConfirmButton(false);
+        if (Auth::attempt($credentials)) {
+            $user = User::where('email', $credentials['email'])->first();
 
-                return redirect()->intended('/dashboard')->with('alert', 'Login success');
+            if ($user) {
+                $request->session()->regenerate();
+                $request->session()->put('email', $user->email);
+                Session::put('login_success', true);
+
+                Alert::toast('Login is Success!', 'success');
+                return redirect('/dashboard');
             } else {
-                Alert::error('Login failed', 'Invalid email or password')->showConfirmButton(false);
+                Alert::toast('Login failed, Invalid email or password', 'error');
                 return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
             }
         } else {
-            Alert::error('Login failed', 'Invalid email or password')->showConfirmButton(false);
+            Alert::toast('Login failed, Invalid email or password', 'error');
             return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
         }
     }
