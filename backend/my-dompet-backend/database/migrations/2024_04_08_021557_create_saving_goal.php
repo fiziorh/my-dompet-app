@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('saving_goal', function (Blueprint $table) {
             $table->id('id_saving');
             $table->string('title');
-            $table->int('target_amount');
+            $table->integer('target_amount');
             $table->date('target_date');
             
             

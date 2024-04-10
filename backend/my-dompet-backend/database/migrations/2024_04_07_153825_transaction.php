@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('transaction', function (Blueprint $table) {
             $table->id('id_transaction');
             $table->string('title');
-            $table->int('nominal');
+            $table->integer('nominal');
             $table->string('description');
             $table->date('transaction_date');
             $table->rememberToken();

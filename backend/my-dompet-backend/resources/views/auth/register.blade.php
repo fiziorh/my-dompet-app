@@ -49,20 +49,24 @@
          <h1 class="mb-4">Register Your Account</h1>
          <img src="{{URL::asset('img/ImageRegister.png')}}" class="register-image" alt="Illustration">
        </div>
+       @include("sweetalert::Alert")
        <div class="col-md-6">
          <div class="form-group">
-           <input type="text" class="form-control" placeholder="Name">
+          <form action="{{ route('register.store') }}" method="POST">
+            @csrf
+           <input type="text" class="form-control" placeholder="Name" name="name">
            <div class="form-group-addon">
-            <input type="text" class="form-control" placeholder="Phone Number">
+            <input type="number" class="form-control" placeholder="Phone Number" name="phone_number">
            </div>
            <div class="form-group-addon">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" name="email">
            </div>
            <div class="form-group-addon">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" name="password">
            </div>
          </div>
-         <button class="btn btn-primary btn-lg btn-block">Create Account</button>
+         <button type="submit" class="btn btn-primary btn-lg btn-block">Create Account</button>
+  </form>
          <div class="text-center mt-3">
            Already have account? <a href="/login">Login</a>
          </div>
