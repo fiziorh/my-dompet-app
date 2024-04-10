@@ -3,4 +3,4 @@
 @include('admin.sidebar')
 @yield('content')
 @include('admin.footer')
->>>>>>> origin/master
+
