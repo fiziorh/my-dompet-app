@@ -30,6 +30,7 @@ class LoginController extends Controller
             if ($user) {
                 $request->session()->regenerate();
                 $request->session()->put('email', $user->email);
+                $request->session()->put('name', $user->name);
                 Session::put('login_success', true);
 
                 Alert::toast('Login is Success!', 'success');
@@ -42,5 +43,15 @@ class LoginController extends Controller
             Alert::toast('Login failed, Invalid email or password', 'error');
             return redirect()->back()->withInput()->withErrors(['email' => 'Invalid email or password']);
         }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        Alert::toast('Logout Success, You have been logged out', 'success');
+
+        return redirect('/login');
     }
 }
