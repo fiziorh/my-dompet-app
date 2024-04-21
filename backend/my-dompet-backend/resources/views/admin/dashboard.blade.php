@@ -4,3 +4,4 @@
 @yield('content')
 @include('admin.footer')
 
+
