@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\HTtp\Controllers\RegisterController;
-use App\HTtp\Controllers\LoginController;
-
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\SpendingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,10 +27,17 @@ Route::get('/dashboard', function () {
     ]);
 });
 
+
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.auth');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/income', [IncomeController::class, 'index']);
+
+Route::get('/spending', [SpendingController::class, 'index']);
