@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\SpendingController;
+use App\Http\Controllers\SettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,3 +42,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/income', [IncomeController::class, 'index']);
 
 Route::get('/spending', [SpendingController::class, 'index']);
+
+Route::get('/setting', [SettingController::class, 'index']);
