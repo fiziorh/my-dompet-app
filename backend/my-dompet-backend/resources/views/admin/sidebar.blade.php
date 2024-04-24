@@ -122,7 +122,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/savingplans" class="nav-link{{ $active === 'savingplans' ? ' active' : '' }}">
+                        <a href="/savingdashboard" class="nav-link{{ $active === 'savingplan' ? ' active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Saving Plans

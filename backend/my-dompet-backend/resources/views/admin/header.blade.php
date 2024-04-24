@@ -14,6 +14,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('temp/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Logo-->
+    <link rel="icon" href="{{URL::asset('img/wallet2.svg')}}" type="image/x-icon">
+
 
 </head>
 
