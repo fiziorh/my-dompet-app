@@ -21,7 +21,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Main Balance</span>
-                        <span class="info-box-number">000</span>
+                        <span class="info-box-number">Rp{{ number_format($main_balance, 2, ',', '.') }}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -56,42 +56,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($income_records as $key => $income)
                                 <tr>
-                                    <td>1</td>
-                                    <td>2024-04-24</td>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $income->created_at }}</td>
+                                    <td>Rp{{ number_format($income->nominal, 2, ',', '.') }}</td>
                                     <td>-</td>
-                                    <td>$100</td>
                                 </tr>
+                                @endforeach
+                                @foreach($spending_records as $key => $spending)
                                 <tr>
-                                    <td>1</td>
-                                    <td>2024-04-24</td>
+                                    <td>{{ count($income_records) + $key + 1}}</td>
+                                    <td>{{ $spending->created_at }}</td>
                                     <td>-</td>
-                                    <td>$100</td>
+                                    <td>Rp{{ number_format($spending->nominal, 2, ',', '.') }}</td>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2024-04-24</td>
-                                    <td>-</td>
-                                    <td>$100</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2024-04-24</td>
-                                    <td>-</td>
-                                    <td>$100</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2024-04-24</td>
-                                    <td>-</td>
-                                    <td>$100</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>2024-04-24</td>
-                                    <td>-</td>
-                                    <td>$100</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
