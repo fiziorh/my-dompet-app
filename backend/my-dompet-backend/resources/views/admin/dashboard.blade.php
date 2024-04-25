@@ -34,7 +34,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Saving Target</span>
-                        <span class="info-box-number">000</span>
+                        <span class="info-box-number">Rp{{ number_format($total_goals, 2, ',', '.') }}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
