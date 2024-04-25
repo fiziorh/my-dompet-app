@@ -10,4 +10,7 @@ class Spending extends Model
     use HasFactory;
     protected $table = 'spending';
     protected $primaryKey = 'id_spending';
+
+    protected $fillable = ['id_user','title','category','nominal','description'];
+
 }

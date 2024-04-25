@@ -29,6 +29,7 @@ class LoginController extends Controller
 
             if ($user) {
                 $request->session()->regenerate();
+                $request->session()->put('id_user', $user->id_user);
                 $request->session()->put('email', $user->email);
                 $request->session()->put('name', $user->name);
                 Session::put('login_success', true);

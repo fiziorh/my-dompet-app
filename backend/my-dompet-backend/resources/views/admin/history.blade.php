@@ -2,9 +2,9 @@
 @include('admin.navbar')
 @include('admin.sidebar')
 @yield('content')
-<<div class="container">
+<div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-8 offset-md-3">
             @forelse($histories as $history)
                 <div
                     class="card history-card mt-5 {{ !is_null($history->id_income) ? 'bg-success' : (!is_null($history->id_spending) ? 'bg-danger' : '') }}">
@@ -27,7 +27,7 @@
                                     @if (!is_null($history->id_income))
                                         {{ !is_null($history->id_income) ? '+' : '-' }}Rp{{ number_format($history->income->nominal, 2, ',', '.') }}
                                     @elseif(!is_null($history->id_spending))
-                                        {{ !is_null($history->id_spending) ? '+' : '-' }}Rp{{ number_format($history->spending->nominal, 2, ',', '.') }}
+                                        {{ !is_null($history->id_spending) ? '-' : '-' }}Rp{{ number_format($history->spending->nominal, 2, ',', '.') }}
                                     @endif
                                 </h3>
                             </div>

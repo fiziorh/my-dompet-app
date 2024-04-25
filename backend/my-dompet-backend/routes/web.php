@@ -43,7 +43,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/income', [IncomeController::class, 'index']);
 
-Route::get('/spending', [SpendingController::class, 'index']);
+Route::get('/spending', [SpendingController::class, 'index'])->name('spending');
+Route::post('/spending', [SpendingController::class, 'store'])->name('spending.store');
 
 Route::get('/setting', [SettingController::class, 'index']);
 

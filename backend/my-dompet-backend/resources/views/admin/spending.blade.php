@@ -8,18 +8,20 @@
             <div class="card mt-5">
                 <div class="card-header text-bold text-center">{{ $title }}</div>
                 <div class="card-body">
-                    <form>
+                    <form action="{{route('spending.store')}}" method="POST">
+                      @csrf
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
                               <label for="spendingTitle">Title</label>
-                              <input type="text" class="form-control" id="spendingTitle" placeholder="Title">
+                              <input type="text" class="form-control" id="spendingTitle" placeholder="Title" name="title">
+                              <input type="hidden" class="form-control" id="spendingTitle" name="id_user" value="{{$id_user}}">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="category">Category</label>
-                            <select class="form-control" id="spendingTitle">
+                            <select class="form-control" id="spendingTitle" name="category">
                               <option value="">--- Select Category ---</option>
                               <option value="food & beverages">Food & Beverages</option>
                               <option value="lifestyle">Lifestyle</option>
@@ -31,11 +33,11 @@
                       </div>
                         <div class="form-group">
                             <label for="spendingNominal">Spending Nominal</label>
-                            <input type="number" class="form-control" id="spendingNominal" placeholder="Nominal">
+                            <input type="number" class="form-control" id="spendingNominal" placeholder="Nominal" name="nominal">
                         </div>
                         <div class="form-group">
                             <label for="spendingDescription">Description</label>
-                            <textarea class="form-control" id="spendingDescription" rows="4"></textarea>
+                            <textarea class="form-control" id="spendingDescription" rows="4" name="description"></textarea>
                         </div>
                         <div class="card-footer">
                           <div class="d-flex justify-content-end">

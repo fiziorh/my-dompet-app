@@ -33,7 +33,7 @@
                     <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-university"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Saving Balance</span>
+                        <span class="info-box-text">Saving Target</span>
                         <span class="info-box-number">000</span>
                     </div>
                     <!-- /.info-box-content -->
