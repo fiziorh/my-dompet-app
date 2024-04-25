@@ -6,8 +6,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-3">
             @forelse($histories as $history)
-                <div
-                    class="card history-card mt-5 {{ !is_null($history->id_income) ? 'bg-success' : (!is_null($history->id_spending) ? 'bg-danger' : '') }}">
+                <div class="card history-card mt-5 {{ !is_null($history->id_income) ? 'bg-success' : (!is_null($history->id_spending) ? 'bg-danger' : '') }}">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">

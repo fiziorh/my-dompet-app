@@ -41,7 +41,8 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/income', [IncomeController::class, 'index']);
+Route::get('/income', [IncomeController::class, 'index'])->name('income');
+Route::post('/income', [IncomeController::class, 'store'])->name('store.income');
 
 Route::get('/spending', [SpendingController::class, 'index'])->name('spending');
 Route::post('/spending', [SpendingController::class, 'store'])->name('spending.store');

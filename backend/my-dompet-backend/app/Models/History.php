@@ -10,7 +10,13 @@ class History extends Model
     use HasFactory;
     protected $table = 'history';
     protected $primaryKey = 'id_history';
-    protected $fillable = ['id_user','id_income','id_spending'];
+
+    protected $fillable= [
+        'id_user',
+        'id_income',
+        'id_spending',
+    ];
+    
     public function income()
     {
         return $this->belongsTo(Income::class, 'id_income');
