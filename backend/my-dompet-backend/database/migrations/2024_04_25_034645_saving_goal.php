@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('history', function (Blueprint $table) {
-            $table->id('id_history');
-            $table->string('type');
+        Schema::create('saving_goal', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->decimal('target_amount');
+            $table->date('target_date');
+            $table->timestamps();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('history');
+        Schema::dropIfExists('saving_goal');
     }
 };

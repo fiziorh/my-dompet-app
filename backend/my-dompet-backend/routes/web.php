@@ -8,6 +8,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\SpendingController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SavingPlanController;
+use App\Http\Controllers\HistoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,3 +48,5 @@ Route::get('/spending', [SpendingController::class, 'index']);
 Route::get('/setting', [SettingController::class, 'index']);
 
 Route::get('/savingdashboard', [SavingPlanController::class, 'index']);
+
+Route::get('/history', [HistoryController::class, 'index']);

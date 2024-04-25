@@ -11,21 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction', function (Blueprint $table) {
-            $table->id('id_transaction');
+        Schema::create('spending', function (Blueprint $table){
+            $table->id('id_spending');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->string('title');
+            $table->string('category');
             $table->integer('nominal');
             $table->string('description');
-            $table->date('transaction_date');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('spending');
     }
 };
