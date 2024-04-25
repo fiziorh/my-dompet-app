@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class HistoryController extends Controller
 {
     public function index() {
-        $history = History::all();
+        $histories = History::all();
         return view('admin.history', [
             'title' => 'History',
             'active' => 'history',
-        ], compact('history'));
+        ], compact('histories'));
     }
 }
