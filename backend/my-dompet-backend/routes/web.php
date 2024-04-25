@@ -49,6 +49,10 @@ Route::post('/spending', [SpendingController::class, 'store'])->name('spending.s
 
 Route::get('/setting', [SettingController::class, 'index']);
 
-Route::get('/savingdashboard', [SavingPlanController::class, 'index']);
+Route::get('/savingdashboard', [SavingPlanController::class, 'index'])->name('saving');
+Route::get('/savingdashboard/create', [SavingPlanController::class, 'create'])->name('create.savingplan');
+Route::post('/savingdashboard/create', [SavingPlanController::class, 'store'])->name('store.saving');
+Route::get('/savingdashboard/detail/{id_saving}', [SavingPlanController::class, 'detail'])->name('detail.saving');
+Route::put('/savingdashboard/detail/{id_saving}', [SavingPlanController::class, 'update'])->name('update.saving');
 
 Route::get('/history', [HistoryController::class, 'index']);

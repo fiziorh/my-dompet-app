@@ -23,7 +23,7 @@ class SpendingController extends Controller
     {
         DB::beginTransaction();
         $id_user = $request->session()->get('id_user');
-        $validatedData = $request->validate([
+        $request->validate([
             'title' => 'required|string',
             'category' => 'required|string',
             'nominal' => 'required|numeric',

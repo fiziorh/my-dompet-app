@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SavingPlan extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['name', 'target_amount', 'user_id'];
+    protected $table = 'saving_goal';
+    protected $primaryKey = 'id_saving';
+    protected $fillable = ['title', 'target_amount', 'target_date'];
 
     public function user()
     {

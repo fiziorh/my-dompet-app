@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('saving_goal', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_saving');
             $table->string('title');
-            $table->decimal('target_amount');
+            $table->integer('target_amount');
             $table->date('target_date');
             $table->timestamps();
         });
