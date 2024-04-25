@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id('id_history');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('id_income');
-            $table->foreign('id_income')->references('id_income')->on('income')->onDelete('cascade')->nullable();
-            $table->unsignedBigInteger('id_spending');
-            $table->foreign('id_spending')->references('id_spending')->on('spending')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('id_income')->nullable();
+            $table->foreign('id_income')->references('id_income')->on('income')->onDelete('cascade');
+            $table->unsignedBigInteger('id_spending')->nullable();
+            $table->foreign('id_spending')->references('id_spending')->on('spending')->onDelete('cascade');
             $table->timestamps();
         });
     }

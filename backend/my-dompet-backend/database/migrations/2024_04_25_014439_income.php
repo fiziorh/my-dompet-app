@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('category');
             $table->integer('nominal');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
