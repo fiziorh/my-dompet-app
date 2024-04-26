@@ -1,4 +1,4 @@
-{{-- <aside class="main-sidebar sidebar elevation-4">
+{{-- <aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <div class="sidebar" style="height: 100vh; overflow-y: auto;">
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -85,11 +85,11 @@
         <div class="container-fluid"> --}}
 
             <!-- Main Sidebar Container -->
-            <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <aside class="main-sidebar sidebar-light-primary elevation-4" style="background-color: #189A46">
                 <!-- Brand Logo -->
                 <a href="/dashboard" class="brand-link">
-                    <img src="{{URL::asset('img/wallet2.svg')}}" alt="Wallet Icon" class="wallet-img" style="margin-left:1em">
-                    <span class="brand-text font-weight-light">MyDompet</span>
+                    <img src="{{URL::asset('img/wallet2.svg')}}" alt="Wallet Icon" class="wallet-img" style="margin-left:1em; filter: invert(100%);">
+                    <span class="brand-text" style="color:white;">MyDompet</span>
                 </a>
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
@@ -106,7 +106,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('/income') }}" class="nav-link{{ $active === 'income' ? ' active' : '' }}">
-                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <img src="{{URL::asset('img/database-fill-add.svg')}}" alt="History Icon" class="nav-icon fas icon-nav">
                                         <p>
                                             Income
                                         </p>
@@ -114,7 +114,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{url ('/spending') }}" class="nav-link{{ $active === 'spending' ? ' active' : '' }}">
-                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <img src="{{URL::asset('img/database-fill-dash.svg')}}" alt="History Icon" class="nav-icon fas icon-nav">
                                         <p>
                                             Spending
                                         </p>
@@ -122,7 +122,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="/savingdashboard" class="nav-link{{ $active === 'savingplan' ? ' active' : '' }}">
-                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <img src="{{URL::asset('img/piggy-bank-fill.svg')}}" alt="History Icon" class="nav-icon fas icon-nav">
                                         <p>
                                             Saving Plans
                                         </p>
@@ -130,7 +130,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="/history" class="nav-link{{ $active === 'history' ? ' active' : '' }}">
-                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        <img src="{{URL::asset('img/calendar-minus-fill.svg')}}" alt="History Icon" class="nav-icon fas icon-nav">
                                         <p>
                                             History
                                         </p>
@@ -140,7 +140,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                         <a href="#" class="nav-link" onclick="event.preventDefault(); confirmLogout();">
-                                            <i class="nav-icon fas fa-power-off"></i>
+                                            <img src="{{URL::asset('img/door-open-fill.svg')}}" alt="History Icon" class="nav-icon fas icon-nav">
                                             <p>Sign Out</p>
                                         </a>
                                     </form>

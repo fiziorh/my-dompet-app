@@ -24,6 +24,7 @@ class DashboardController extends Controller
         //calculate saving target
         $totalGoals = SavingPlan::sum('target_amount');
 
+
         return view('admin.dashboard', [
             'title' => 'Dashboard',
             'active' => 'dashboard',

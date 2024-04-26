@@ -29,16 +29,18 @@
             </div>
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-6">
-                <div class="info-box mb-3">
-                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-university"></i></span>
+                <a href="{{route('saving')}}">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-university"></i></span>
 
-                    <div class="info-box-content">
-                        <span class="info-box-text">Saving Target</span>
-                        <span class="info-box-number">Rp{{ number_format($total_goals, 2, ',', '.') }}</span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Saving Target</span>
+                            <span class="info-box-number">Rp{{ number_format($total_goals, 2, ',', '.') }}</span>
+                        </div>
+                        <!-- /.info-box-content -->
                     </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
+                    <!-- /.info-box -->
+                </a>
             </div>
         </div>
         <div class="col-12 d-flex justify-content-center">
@@ -46,7 +48,7 @@
                 <div class="card">
                     <div class="card-header">History</div>
                     <div class="card-body">
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th style="width:10%">No</th>
@@ -56,10 +58,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                use Carbon\Carbon;
+                                @endphp
                                 @foreach($income_records as $key => $income)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $income->created_at }}</td>
+                                    <td>{{ Carbon::parse($income->created_at)->format('d F Y') }}</td>
                                     <td>Rp{{ number_format($income->nominal, 2, ',', '.') }}</td>
                                     <td>-</td>
                                 </tr>
@@ -67,7 +72,7 @@
                                 @foreach($spending_records as $key => $spending)
                                 <tr>
                                     <td>{{ count($income_records) + $key + 1}}</td>
-                                    <td>{{ $spending->created_at }}</td>
+                                    <td>{{ Carbon::parse($spending->created_at)->format('d F Y') }}</td>
                                     <td>-</td>
                                     <td>Rp{{ number_format($spending->nominal, 2, ',', '.') }}</td>
                                 </tr>

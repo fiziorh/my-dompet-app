@@ -6,3 +6,22 @@
 .justify-content-between {
     justify-content: space-between;
 }
+
+.nav-sidebar .nav-link {
+    color: white !important;
+}
+
+.card-header{
+    background-color: #189A46 !important;
+    color: white !important;
+}
+
+a.nav-link.active {
+    background-color: #147D38 !important;
+}
+
+.icon-nav{
+    filter: invert(100%) !important;
+    width: 12% !important; 
+    height: auto !important;
+}
